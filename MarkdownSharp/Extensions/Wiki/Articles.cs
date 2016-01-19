@@ -6,6 +6,7 @@
 
 using System;
 using System.Net;
+using System.Web;
 using System.Text.RegularExpressions;
 
 
@@ -34,7 +35,7 @@ namespace MarkdownSharp.Extensions.Wiki
         private string ArticleEvaluator(Match match)
         {
             string lang = match.Groups[1].Value;
-            string title = WebUtility.UrlDecode(match.Groups[2].Value);
+			string title = "dummy";//HttpUtility.UrlDecode /*WebUtility.UrlDecode*/(match.Groups[2].Value);
 
             return String.Format(
                 "[{0}_wiki://{1}](https://{0}.wikipedia.org/wiki/{1})",
